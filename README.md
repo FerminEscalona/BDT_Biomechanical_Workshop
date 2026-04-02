@@ -27,7 +27,7 @@ pip install -r requirements.txt
 ```
 
 ### 2. Base de Datos (Docker)
-El proyecto requiere una base de datos **PostgreSQL** corriendo en un contenedor. [cite_start]Asegúrate de que tu contenedor esté mapeado al puerto **5433** como se solicita en el taller.
+El proyecto requiere una base de datos **PostgreSQL** corriendo en un contenedor. Asegúrate de que tu contenedor esté mapeado al puerto **5433** como se solicita en el taller.
 
 ### 3. Configuración de Variables de Entorno (`.env`)
 Por seguridad, las credenciales no están incluidas en el código. Crea un archivo llamado `.env` en la raíz del proyecto con el siguiente contenido:
@@ -41,8 +41,8 @@ DB_PASS=tu_password_aqui
 ```
 
 ## 📂 Estructura del Proyecto
-* [cite_start]**`main.py`**: Script principal que ejecuta las tareas en secuencia y genera los reportes de salida[cite: 6].
-* [cite_start]**`utils.py`**: Librería de soporte que contiene las funciones de diagnóstico, limpieza y carga de datos[cite: 6].
+* **`main.py`**: Script principal que ejecuta las tareas en secuencia y genera los reportes de salida.
+* **`utils.py`**: Librería de soporte que contiene las funciones de diagnóstico, limpieza y carga de datos.
 * **`requirements.txt`**: Lista de dependencias del proyecto.
 * **`.gitignore`**: Define los archivos y carpetas que deben ignorarse (env, .env, .csv, __pycache__).
 
@@ -55,8 +55,8 @@ python main.py
 
 ## 📝 Tareas Realizadas
 El script ejecutará automáticamente los siguientes módulos:
-1.  [cite_start]**Diagnóstico de Archivos**: Obtención de rutas absolutas, verificación de permisos y métricas de espacio en disco (con conversión dinámica de unidades)[cite: 12, 14, 15, 17].
-2.  [cite_start]**Limpieza de Datos**: Validación de tipos, cálculo de porcentajes de nulos y eliminación de registros incompletos en columnas críticas (`value_x`, `value_y`, `value_z`)[cite: 23, 26, 28].
-3.  [cite_start]**Optimización de Rendimiento**: Comparación de tiempos de ejecución entre `iterrows`, `df.apply` y **Vectorización**[cite: 33, 34, 35].
-4.  [cite_start]**Integración SQL**: Carga eficiente mediante `copy_expert` hacia PostgreSQL y recuperación selectiva mediante queries SQL[cite: 51, 56, 59].
-5.  [cite_start]**Visualización**: Generación de subplots para los ángulos de Hip, Knee y Ankle, comparando los lados izquierdo (Rojo) y derecho (Azul)[cite: 67, 68, 70, 71].
+1.  **Diagnóstico de Archivos**: Obtención de rutas absolutas, verificación de permisos y métricas de espacio en disco (con conversión dinámica de unidades).
+2.  **Limpieza de Datos**: Validación de tipos, cálculo de porcentajes de nulos y eliminación de registros incompletos en columnas críticas (`value_x`, `value_y`, `value_z`).
+3.  **Optimización de Rendimiento**: Comparación de tiempos de ejecución entre `iterrows`, `df.apply` y **Vectorización**.
+4.  **Integración SQL**: Carga eficiente mediante `copy_expert` hacia PostgreSQL y recuperación selectiva mediante queries SQL.
+5.  **Visualización**: Generación de subplots para los ángulos de Hip, Knee y Ankle, comparando los lados izquierdo (Rojo) y derecho (Azul).
