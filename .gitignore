@@ -7,15 +7,6 @@
 .env.*
 !.env.example
 
-# Astro / Node
-node_modules/
-dist/
-.astro/
-
-# Cloudflare
-.wrangler/
-.dev.vars
-
 # Python
 __pycache__/
 *.py[cod]
@@ -28,8 +19,6 @@ env/
 # Databases
 *.db
 *.sqlite
-drizzle/
-migrations/
 
 package-lock.json
 package.json

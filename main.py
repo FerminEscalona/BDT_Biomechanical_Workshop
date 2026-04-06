@@ -83,7 +83,7 @@ print("\n--- 4. DATABASE INTEGRATION & RETRIEVAL ---")
 # 1. Cargar datos limpios a la base de datos
 load_data_to_postgres(df_cleaned, "kinematics_data")
 
-# 2. Consulta SQL dirigida para visualización [cite: 59, 60, 61]
+# 2. Consulta SQL dirigida para visualización 
 # Debes ajustar los valores de los filtros (subject_id, date, etc.) a los que tenga tu CSV
 query = """
 SELECT side, joint, value_x, value_y, value_z 
@@ -94,7 +94,6 @@ WHERE joint IN ('Hip', 'Knee', 'Ankle')
   AND date = '09-27-16' 
   AND protocol = 'M'
 """
-# Nota: Asegúrate de que 'S01' y trial=1 existan en tu archivo .csv
 
 conn = get_db_connection()
 df_plot = pd.read_sql_query(query, conn) 
@@ -105,17 +104,17 @@ print(df_plot.head())
 
 print("\n--- 5. DATA VISUALIZATION ---")
 
-# 1. Definir la estructura de 3 subplots verticales [cite: 67, 74]
+# 1. Definir la estructura de 3 subplots verticales 
 fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(10, 15))
 joints = ['Hip', 'Knee', 'Ankle']
 
 # 2. Iterar sobre cada articulación para crear los gráficos
 for i, joint in enumerate(joints):
-    # Filtrar datos por articulación y lado [cite: 75]
+    # Filtrar datos por articulación y lado 
     subset_l = df_plot[(df_plot['joint'] == joint) & (df_plot['side'] == 'L')]
     subset_r = df_plot[(df_plot['joint'] == joint) & (df_plot['side'] == 'R')]
     
-    # Graficar Lado Izquierdo (Rojo) [cite: 70, 77]
+    # Graficar Lado Izquierdo (Rojo) 
     # Usamos diferentes estilos de línea para distinguir X, Y, Z
     axes[i].plot(subset_l['value_x'].values, color='red', linestyle='-', label='L - Val X')
     axes[i].plot(subset_l['value_y'].values, color='red', linestyle='--', label='L - Val Y')

@@ -102,7 +102,7 @@ def load_data_to_postgres(df, table_name):
     df.to_csv(temp_csv, index=False, header=False) # Guardar sin cabecera para el COPY
     
     with open(temp_csv, 'r') as f:
-        # El comando COPY es mucho más rápido que INSERT para Big Data [cite: 57, 58]
+        # El comando COPY es mucho más rápido que INSERT para Big Data 
         sql = f"COPY {table_name} FROM STDIN WITH (FORMAT CSV)"
         cur.copy_expert(sql, f)
     
